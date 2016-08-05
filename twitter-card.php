@@ -31,9 +31,9 @@
  * * REQUIRED      @type            - The type of the card                                                       * *
  * * REQUIRED      @site_url        - The url of the relative site of the card                                   * *
  * * REQUIRED      @title           - The title of the relative site of the card                                 * *
- * * OPTIONAL      @description     - The desciption of the relative site of the card                            * *
- * * OPTIONAL      @image_url       - The image url of the relative site of the card                             * *
- * * OPTIONAL      @image_alt       - The alternative texte of the relative site of the card                     * *
+ * * REQUIRED      @description     - The desciption of the relative site of the card                            * *
+ * * REQUIRED      @image_url       - The image url of the relative site of the card                             * *
+ * * REQUIRED      @image_alt       - The alternative texte of the relative site of the card                     * *
  * *                                                                                                             * *
  * *************************************************************************************************************** *
  * *************************************************************************************************************** *
@@ -54,6 +54,21 @@ function get_summary_card(
         '<meta name="twitter:image" content="'.$image_url.'" />'.
         '<meta name="twitter:image:alt" content="'.image_alt.'" />'
     ;
+}
+
+function get_summary_large_image_card(
+    $type,
+    $site_url,
+    $title,
+    $description,
+    $image_url,
+    $image_alt
+) {
+	$card = get_summary_card($type, $site_url, $title, $description, $image_url, $image_alt);
+
+	/*AJOUTER LE RESTE DE LA CARTE*/
+
+	return $card;
 }
 
 <!-- Summary Card with large image -->
